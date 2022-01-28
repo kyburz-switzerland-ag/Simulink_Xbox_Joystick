@@ -15,6 +15,8 @@ Installation
 Use
 ====
 
-The buttons can be used to control the left and right vibration. The input values can also be modulated.
+Simulation Pacing is active and fixed step sizes are used, which result in more deterministic behaviour due to the asynchronous polling of the joystick. Pacing may be turned off, but the behaviour is untested.
 
-Additional buttons and functions can be mapped 
+The buttons can be used to control the left and right vibration. The input values can also be modulated but the effect is not extremely percievable.
+
+Additional buttons and functions can be easily mapped by inspecting the XInput-Python code, as well as the Matlab Function in the Simulink Block.

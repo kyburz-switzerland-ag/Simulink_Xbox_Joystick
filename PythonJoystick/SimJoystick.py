@@ -52,11 +52,14 @@ def ev(vibL,vibR,prevSteer,prevThrottle,prevA,prevB,prevX,prevY):
                 Throttle = prevThrottle
 
 
-    if vibL>0:
-        set_vibration(0,np.clip(vibL,0,2**16),0) #Values between 0 and 2^16 are allowed
+    if vibL>0 or vibR>0:
+        if vibL>0:
+            set_vibration(0,np.clip(vibL,0,2**16),0) #Values between 0 and 2^16 are allowed
+        if vibR>0:
+            set_vibration(0,0,np.clip(vibR,0,2**16)) #Values between 0 and 2^16 are allowed
+    else:
+        set_vibration(0,0,0)
 
-    if vibR>0:
-        set_vibration(0,0,np.clip(vibR,0,2**16)) #Values between 0 and 2^16 are allowed
 
     return A,B,X,Y,Steer,Throttle
 
